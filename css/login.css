@@ -1,0 +1,119 @@
+html, body {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+html {
+    background: #6A6A6A;
+    background-image: -webkit-linear-gradient(to top right, #4A4A4A, #CCCCCC);
+    background-image: linear-gradient(to top right, #4A4A4A, #CCCCCC);
+}
+body {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    background: url("../img/bg.png") 0 0;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#dialog {
+    background: #FFFFFF;
+    min-width: 360px;
+    padding: 20px 20px 10px 20px;
+}
+#title {
+    font: 24px "Source Code Pro";
+    margin: 0 0 20px 0;
+}
+.dialogInput {
+    display: flex;
+    flex-flow: row wrap;
+    height: 30px;
+    border: 1px solid rgba(224, 220, 214, 1);
+    margin: 0 0 10px 0;
+}
+.dialogInput-item {
+    display: inherit;
+    justify-content: center;
+    line-height: 30px;
+    width: 30%;
+    border-right: 1px solid rgba(224, 220, 214, 1);
+    background: rgba(244, 243, 230, 1);
+}
+.dialogInput-field {
+    flex: 1;
+    border: 0;
+    font-size: 16px;
+    font-family: inherit;
+    padding: 0 10px;
+}
+.dialogInput-field:focus {
+    outline: none;
+}
+#forgot {
+    font-size: 12px;
+    text-align: right;
+}
+#forgot:hover {
+    cursor: pointer;
+    color: #E26359;
+}
+.dialogCheckBox {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+#remember, #auto {
+    display: inherit;
+    flex: 0.5;
+    cursor: pointer;
+}
+.dialogCheckBox-item {
+    display: inherit;
+    justify-content: center;
+    line-height: 20px;
+    padding: 0 0 0 5px;
+}
+.dialogCheckBox-field-off,
+.dialogCheckBox-field-on {
+    display: inherit;
+    width: 38px;
+    height: 18px;
+    border: 1px solid rgba(224, 220, 214, 1);
+    align-items: center;
+}
+.dialogCheckBox-field-on {
+    background: rgba(244, 243, 230, 1);
+    justify-content: flex-end;
+}
+.dialogCheckBox-field-button {
+    width: 16px;
+    height: 16px;
+    margin: 2px;
+    background: rgba(224, 220, 214, 1);
+}
+#submit {
+    display: flex;
+    height: 30px;
+    padding: 10px 0;
+}
+#submit span {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    flex: 0.5;
+}
+#submit span:first-child {
+    background: rgba(224, 220, 214, 1);
+    margin: 0 15px 0 0;
+}
+#submit span:last-child {
+    background: rgba(244, 243, 230, 1);
+    margin: 0 0 0 15px;
+}

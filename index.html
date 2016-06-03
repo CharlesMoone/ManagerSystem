@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>login</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/login.min.css" />
+    <link rel="stylesheet" href="css/message.min.css" />
+</head>
+<body>
+    <div id="dialog">
+        <h3 id="title">welcome</h3>
+        <div class="dialogInput">
+            <label class="dialogInput-item" for="account">account</label>
+            <input type="text" name="account" id="account" data-name="account" class="dialogInput-field" />
+        </div>
+        <div class="dialogInput">
+            <label class="dialogInput-item" for="password">password</label>
+            <input type="password" name="password" id="password" data-name="password" class="dialogInput-field" />
+        </div>
+        <div id="forgot">forgot?</div>
+        <div class="dialogCheckBox">
+            <div id="remember">
+                <input type="checkbox" name="remember" class="hidden" id="rememberBox" />
+                <div class="dialogCheckBox-field-off" id="remember-button">
+                    <div class="dialogCheckBox-field-button"></div>
+                </div>
+                <span class="dialogCheckBox-item">remember</span>
+            </div>
+            <div id="auto">
+                <input type="checkbox" name="auto" class="hidden" id="autoBox" />
+                <div class="dialogCheckBox-field-off" id="auto-button">
+                    <div class="dialogCheckBox-field-button"></div>
+                </div>
+                <span class="dialogCheckBox-item">auto-login</span>
+            </div>
+        </div>
+        <div id="submit">
+            <span id="register">register</span>
+            <span id="login">login</span>
+        </div>
+    </div>
+    <script src="js/methods.min.js"></script>
+    <script src="js/message.min.js"></script>
+    <script src="js/main.min.js"></script>
+</body>
+</html>
