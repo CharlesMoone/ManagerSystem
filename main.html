@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
     <title>main</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/main/main.css" />
 </head>
 <body>
-
+    <div id="content">
+        <div class="option">
+            <label for="name">name</label>
+            <input type="text" name="name" id="name" data-checked="checked" />
+            <span>eg.'CharlesMoone'</span>
+        </div>
+        <div class="option">
+            <label for="age">age</label>
+            <input type="text" name="age" id="age" data-checked="checked" />
+            <span>eg.'21'</span>
+        </div>
+        <div class="option">
+            <button id="submit">submit</button>
+        </div>
+    </div>
+    <script src="js/methods.min.js"></script>
+    <script src="js/main/main.js"></script>
 </body>
 </html>
