@@ -28,7 +28,7 @@ body {
     padding: 20px 20px 10px 20px;
 }
 #logging {
-    display: flex;
+    display: none;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
