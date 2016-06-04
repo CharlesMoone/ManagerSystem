@@ -12,7 +12,7 @@ Login-Page
 
     login.css => login.min.css
     message.css => message.min.css
-    main.js => main.min.js
+    login.js => login.min.js
     message.js => message.min.js
     methods.js => methods.min.js
 
