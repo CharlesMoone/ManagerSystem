@@ -15,7 +15,7 @@ body {
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    background: url("../img/bg.png") 0 0;
+    background: url("../../img/bg.png") 0 0;
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -46,7 +46,7 @@ body {
 #loggingFrame {
     width: 60px;
     height: 60px;
-    background: url("../img/helper-neko.png") 0 0/600px 60px;
+    background: url("../../img/helper-neko.png") 0 0/600px 60px;
     -webkit-animation: moving-neko 1s steps(10, start) infinite;;
     -o-animation: moving-neko 1s steps(10, start) infinite;;
     animation: moving-neko 1s steps(10, start) infinite;;
