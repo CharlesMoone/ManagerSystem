@@ -1,0 +1,62 @@
+body {
+    border-top: 1px solid #CCCCCC;
+}
+#content {
+    display: flex;
+    flex-flow: column nowrap;
+}
+.area {
+    display: inherit;
+    flex-flow: inherit;
+}
+.option {
+    display: inherit;
+    align-items: center;
+    height: 40px;
+}
+.option,
+.option label,
+.option input {
+    font-size: 18px;
+}
+.option label {
+    width: 100px;
+}
+.option input {
+    min-width: 200px;
+    border:1px solid #CCCCCC;
+    -webkit-transition: box-shadow 0.3s ease;
+    -moz-transition:  box-shadow 0.3s ease;
+}
+.option span {
+    padding: 0 10px;
+    font-size: 12px;
+    display: none;
+}
+.option input:focus {
+    outline: 0;
+    border:#87C6F9 1px solid;
+    box-shadow: 0 0 8px rgba(103, 166, 217, 1);
+}
+.warning {
+    outline: 0;
+    border:#E26359 1px solid;
+    box-shadow: 0 0 8px #D0021B;
+}
+.warning + span {
+    color: #D0021B;
+}
+.option input:focus + span {
+    display: inline-block;
+}
+
+@media screen and (max-width: 640px) {
+    .option {
+        flex-flow: row wrap;
+        height: 50px;
+    }
+    .option span {
+        padding: 0 100px;
+        width: 100%;
+    }
+}

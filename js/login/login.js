@@ -4,9 +4,9 @@
  * 2016.6.3 14:49
  */
 
-window.onload = function () {
+methods.addEvent(window, 'load', function () {
     pageInit();
-};
+});
 
 function pageInit() {
     var login = new Login({
@@ -29,7 +29,13 @@ function pageInit() {
             new Inform({title: 'Error', content: login.inputCheck().target.dataset.name + ' can\'t be null'}).alert();
             return ;
         }
-        new Inform({title: 'Inform', content: 'success'}).alert();
+        login.getId('logging').style.display = 'flex';
+        setTimeout(function () {
+            window.location.href = 'frame.html';
+        }, 2000);
+    });
+    login.addEvent(login.getId('cancel'), 'click', function () {
+        login.getId('logging').style.display = 'none';
     });
 }
 

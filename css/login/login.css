@@ -15,16 +15,70 @@ body {
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    background: url("../img/bg.png") 0 0;
+    background: url("../../img/bg.png") 0 0;
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
 #dialog {
+    position: relative;
     background: #FFFFFF;
     min-width: 360px;
     padding: 20px 20px 10px 20px;
+}
+#logging {
+    display: none;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.8);
+}
+#logging span {
+    display: inline-block;
+    padding: 10px 0;
+}
+#loggingFrame {
+    width: 60px;
+    height: 60px;
+    background: url("../../img/helper-neko.png") 0 0/600px 60px;
+    -webkit-animation: moving-neko 1s steps(10, start) infinite;;
+    -o-animation: moving-neko 1s steps(10, start) infinite;;
+    animation: moving-neko 1s steps(10, start) infinite;;
+}
+@keyframes moving-neko {
+    0% {
+        background-position-x: 600px;
+    }
+    100% {
+        background-position-x: 0;
+    }
+}
+#cancelDiv {
+    position: inherit;
+    display: inherit;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 0;
+}
+#cancelDiv button {
+    height: 30px;
+    border: 0;
+    width: 100px;
+    font-size: 14px;
+    background: rgba(244, 243, 230, 1);
+}
+#cancel:focus {
+    outline: 0;
+}
+#cancel:active {
+    background: rgba(224, 220, 214, 1);
 }
 #title {
     font: 24px "Source Code Pro";

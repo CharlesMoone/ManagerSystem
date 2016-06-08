@@ -24,6 +24,30 @@ var methods = {
         }
     },
 
+    addTagEvent: function (dom, linear, callback, start, end) {
+        if (start == dom.length) return ;
+        start = start || 0;
+        this.addEvent(dom[start++], linear, callback);
+        this.addTagEvent(dom, linear, callback, start);
+    },
+    
+    indexOf: function (array, target) {
+        for (var i = 0; i < array.length; i ++) {
+            if (target == array[i]) {
+                return i;
+            }
+        }
+        return false;
+    },
+
+    removeClass: function (className, target) {
+        var classArray = className.split(" ");
+        var number = this.indexOf(classArray, target);
+        if (number)
+            classArray.splice(number, 1);
+        return classArray.join(" ");
+    },
+
     /**
      * 删除事件监听的兼容模式
      * !!!!!谨记!!!!!删除不可以删除用匿名函数创建的事件监听
