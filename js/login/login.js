@@ -31,7 +31,7 @@ function pageInit() {
         }
         login.getId('logging').style.display = 'flex';
         setTimeout(function () {
-            window.location.href = 'main.html';
+            window.location.href = 'frame.html';
         }, 2000);
     });
     login.addEvent(login.getId('cancel'), 'click', function () {

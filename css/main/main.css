@@ -1,6 +1,13 @@
+body {
+    border-top: 1px solid #CCCCCC;
+}
 #content {
     display: flex;
     flex-flow: column nowrap;
+}
+.area {
+    display: inherit;
+    flex-flow: inherit;
 }
 .option {
     display: inherit;
@@ -41,4 +48,15 @@
 }
 .option input:focus + span {
     display: inline-block;
+}
+
+@media screen and (max-width: 640px) {
+    .option {
+        flex-flow: row wrap;
+        height: 50px;
+    }
+    .option span {
+        padding: 0 100px;
+        width: 100%;
+    }
 }
