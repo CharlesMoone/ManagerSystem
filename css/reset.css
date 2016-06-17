@@ -3,7 +3,8 @@
 /* Reset css*/
 body, h1, h2, h3, h4, h5, h6, div, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
     margin: 0;
-    padding: 0
+    padding: 0;
+    font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti, "Microsoft YaHei"
 }
 
 body {
@@ -74,7 +75,7 @@ table {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 /*a*/

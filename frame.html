@@ -12,21 +12,24 @@
 </head>
 <body class="HolyGrail">
 <header>
-    <div id="title">This is title</div>
+    <div id="logo"><img src="img/skype.png" alt="logo" /></div>
+    <div id="title"><a href="frame.html">中国第一家快消品公司</a></div>
+    <div id="help">帮助</div>
+    <div id="setting">设置</div>
+    <div id="quit">退出</div>
 </header>
 <div class="HolyGrail-body">
-    <main class="HolyGrail-content">
-        <aside class="HolyGrail-page" id="page-title">
-        </aside>
-        <iframe frameborder="0" name="frame"></iframe>
-    </main>
     <nav class="HolyGrail-nav">
         <div id="nav-hidden"></div>
-        <a href="main.html" target="frame" name="main" class="HolyGrail-button"><img src="img/skype.png" />Function_1</a>
-        <a href="table.html" target="frame" name="table" class="HolyGrail-button"><img src="img/skype.png" />Function_2</a>
+        <div class="HolyGrail-button" data-name="company"><img src="img/skype.png" /><span>企业信息</span></div>
+        <div class="HolyGrail-button" data-name="table"><img src="img/skype.png" /><span>table</span></div>
     </nav>
+    <aside class="HolyGrail-aside hidden">
+    </aside>
+    <main class="HolyGrail-content">
+        <iframe frameborder="0" name="frame" src="welcome.html"></iframe>
+    </main>
 </div>
-<script src="js/methods.js"></script>
-<script src="js/frame.js"></script>
+<script src="js/require.js" data-main="js/frame"></script>
 </body>
 </html>
