@@ -161,7 +161,7 @@ Delete.prototype.alert = function (id, url) {
      * 调用showMsg方法
      * @target 要把message弹窗在body里显示
      */
-    this.showMsg(document.getElementsByTagName('body')[0]);
+    this.showMsg(window.parent.document.getElementsByTagName('body')[0] || document.getElementsByTagName('body')[0]);
 
     var that = this;
     //冒泡事件绑定,判断点击的目标是否name为confirm,如果是则调用删除方法。
@@ -221,7 +221,7 @@ Inform.prototype.alert = function (callback) {
      * 调用showMsg方法
      * @target 要把message弹窗在body里显示
      */
-    this.showMsg(document.getElementsByTagName('body')[0]);
+    this.showMsg(window.parent.document.getElementsByTagName('body')[0] || document.getElementsByTagName('body')[0]);
 
     var that = this;
     //冒泡事件绑定,判断点击的目标是否name为confirm,如果是则调用删除方法。
@@ -241,4 +241,182 @@ Inform.prototype.alert = function (callback) {
             that.removeEvent(that.popMsg, 'click');
         } catch (e) {console.log(e);}
     });
+};
+
+
+/**
+ * 图片上传事件绑定
+ * @param text 对象类型{title:xxx, name:xxx}
+ * @param imgSrc 图片的src
+ * @constructor 指向父类EventBind
+ */
+var ImgUpload = function (text, imgSrc) {
+    this.constructor = EventBind;
+    this.imgSrc = imgSrc || null;
+    EventBind.call(this, text);
+    this.section.className = 'operation';
+    this.init(this.text);
+};
+inheritPrototype(EventBind, ImgUpload);
+ImgUpload.prototype.alert = function () {
+    //缓存this
+    var that = this;
+
+    //form提交图片
+    var form = document.createElement('FORM');
+    form.id = 'imgUpload';
+    form.setAttribute('action', '/Home/File/upload?iframe_upload=getImgUpload');
+    form.setAttribute('method', 'post');
+    form.setAttribute('target', 'imgIframe');
+    form.setAttribute('enctype', 'multipart/form-data');
+
+    //input[type=file]加载本地图片
+    var input = document.createElement('INPUT');
+    input.id = 'fileUpload';
+    input.setAttribute('name', this.text.name);
+    input.setAttribute('type', 'file');
+
+    //input绑定change事件,发生change时调用canvasDisplay方法
+    this.addEvent(input, 'change', function (event) {
+        that.canvasDisplay(this);
+    });
+
+    //通过iframe执行callback=>getImgUpload
+    var iframe = document.createElement('IFRAME');
+    iframe.id = 'imgIframe';
+    iframe.setAttribute('name', 'imgIframe');
+    iframe.className = 'hidden';
+
+    //canvas显示图片
+    var canvas = document.createElement('CANVAS');
+    canvas.id = 'canvasDisplay';
+    canvas.setAttribute('width', '600');
+    canvas.setAttribute('height', '280');
+
+    /**
+     * 给middle显示图片
+     * 需要给this.middle的html清空
+     * 然后再调用insert方法把图片填充到this.middle里
+     */
+    this.middle.className += " middleUpload";
+    this.middle.innerHTML = null;
+    this.insert(form, input).insert(form, iframe).insert(form, canvas);
+    this.insert(this.middle, form);
+
+    /**
+     * 调用showMsg方法
+     * @target 要把message弹窗在body里显示
+     */
+    this.showMsg(window.parent.document.getElementsByTagName('body')[0]);
+
+    /**
+     * 如果imgSrc没有的话则不执行显示图片的方法,反之则执行显示图片
+     */
+    if (this.imgSrc) {
+        this.canvasShow(this.imgSrc);
+    }
+
+    //冒泡事件绑定,判断点击的目标是否name为confirm,如果是则调用删除方法。
+    this.addEvent(this.popMsg, 'click', function (event) {
+        event = that.getEvent(event);
+        var target = that.getTarget(event);
+        try {
+            switch (target.getAttribute('name')) {
+                case 'popOut':
+                    that.popMsg.parentNode.removeChild(that.popMsg);
+                    break;
+                case 'confirm':
+                    document.getElementById('imgUpload').submit();
+            }
+            that.removeEvent(that.popMsg, 'click');
+        } catch (e) {console.log(e);}
+    });
+};
+ImgUpload.prototype.canvasShow = function (imgSrc) {
+    var canvas = document.getElementById("canvasDisplay") || window.parent.document.getElementById("canvasDisplay");
+    var ctx = canvas.getContext("2d");
+    if (!canvas || !canvas.getContext) {
+        alert("您的浏览器不支持本功能!请更换浏览器");
+        window.location.reload();
+        return ;
+    }
+    var size = {
+        width: canvas.width,
+        height: canvas.height
+    };
+    ctx.clearRect(0, 0, size.width, size.height);
+
+    var image = new Image();
+
+    image.src = imgSrc;
+    image.onload = function () {
+        var w, h, ratio;
+        ratio = {
+            image: image.width / image.height,
+            canvas: size.width / size.height,
+            width: size.width / image.width,
+            height: size.height / image.height
+        };
+        if (ratio.image > ratio.canvas) {
+            w = size.width;
+            h = image.height * ratio.width;
+            ctx.drawImage(image, 0, (size.height - h) * 0.5, w, h);
+        } else {
+            w = image.width * ratio.height;
+            h = size.height;
+            ctx.drawImage(image, (size.width - w) * 0.5, 0, w, h);
+        }
+    };
+};
+ImgUpload.prototype.canvasDisplay = function (file) {
+    //缓存this
+    var that = this;
+
+    var type = /.*\.(.*)$/.exec(file.value)[1].toLowerCase();
+    if (type != "png" && type != "jpg" && type != "jpeg") {
+        alert("您上传的图片格式不为png、jpg、jpeg!请重新上传");
+        return ;
+    }
+    var canvas = document.getElementById("canvasDisplay") || window.parent.document.getElementById("canvasDisplay");
+    var ctx = canvas.getContext("2d");
+    if (!canvas || !canvas.getContext) {
+        alert("您的浏览器不支持本功能!请更换浏览器");
+        window.location.reload();
+        return ;
+    }
+    var size = {
+        width: canvas.width,
+        height: canvas.height
+    };
+    ctx.clearRect(0, 0, size.width, size.height);
+
+    var image = new Image();
+
+    if (file.files && file.files[0]) {
+        image.src = window.URL.createObjectURL(file.files[0]);
+        image.onload = function () {
+            var w, h, ratio;
+            ratio = {
+                image: image.width / image.height,
+                canvas: size.width / size.height,
+                width: size.width / image.width,
+                height: size.height / image.height
+            };
+            if (ratio.image > ratio.canvas) {
+                w = size.width;
+                h = image.height * ratio.width;
+                ctx.drawImage(image, 0, (size.height - h) * 0.5, w, h);
+            } else {
+                w = image.width * ratio.height;
+                h = size.height;
+                ctx.drawImage(image, (size.width - w) * 0.5, 0, w, h);
+            }
+            that.clipImage(ctx);
+        };
+    } else {
+        console.error("文件读取失败!");
+    }
+};
+ImgUpload.prototype.clipImage = function (ctx) {
+
 };
