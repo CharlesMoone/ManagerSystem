@@ -4,7 +4,7 @@
 [写在前面]本产品为个人实验练手项目,勿做商用!违者必究!
 
 
-[demo](https://charlesmoone.github.io/LoginPage/)
+[demo](https://charlesmoone.github.io/ManagerSystem/)
 
 后台管理系统案例
 
