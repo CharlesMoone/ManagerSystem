@@ -1,57 +1,123 @@
-methods.addEvent(window, 'load', function () {
-    var frame = new Frame({
-        button: document.getElementsByClassName('HolyGrail-button'),
-        tag: document.getElementsByClassName('HolyGrail-tag')
-    });
-    frame.addTagEvent(frame.button, 'click', function (e) {
-        var that = this;
-        frame.removeAC(frame.button, 'active');
-        this.className += ' active';
-        if (frame.getId(this.name+'Page')) {
-            this.click();
-            frame.removeAC(frame.tag, 'active');
-            frame.getId(this.name+'Page').className += ' active';
-            return ;
+require(['jquery'], function ($) {
+    /**
+     * nav及内容管理
+     * @type {{company: {title: string, content: *[]}, table: {title: string, content: *[]}}}
+     */
+    var fun = {
+        company:
+        {
+            title: '企业信息',
+            content:
+                [
+                    {
+                        title: '基本信息',
+                        link: './html/company/base.html'
+                    },
+                    {
+                        title: '仓库管理',
+                        link: ''
+                    }
+                ]
+        },
+        table: {
+            title: '企业信息',
+            content:
+                [
+                    {
+                        title: '基本信息',
+                        link: ''
+                    },
+                    {
+                        title: '仓库管理',
+                        link: ''
+                    }
+                ]
         }
-        var a = frame.create('A', {
-            id: this.name+'Page',
-            href: this.name+'.html',
-            className: 'HolyGrail-tag',
-            target: 'frame',
-            innerHTML: this.name
+    };
+
+    /**
+     * 获取所有的nav的按钮
+     * @type {*|jQuery|HTMLElement}
+     */
+    var button = $('.HolyGrail-button');
+
+    /**
+     * 获取nav面板
+     * @type {*|jQuery|HTMLElement}
+     */
+    var nav = $('nav');
+
+    /**
+     * 获取aside面板
+     * @type {*|jQuery|HTMLElement}
+     */
+    var aside = $('aside');
+
+    /**
+     * 获取隐藏按钮
+     * @type {*|jQuery|HTMLElement}
+     */
+    var navHidden = $("#nav-hidden");
+
+    /**
+     * 显示aside功能文字
+     * @param _name nav的名字
+     * @type _name: string
+     * @param _fun nav的内容管理
+     * @type _fun: object
+     * @returns {string}
+     */
+    function disFun(_name, _fun) {
+        try {
+            if (_name in _fun) {
+                aside.removeClass('hidden');
+                nav.addClass('hidden-nav');
+                var dom = "<span>" + _fun[_name].title + "</span>";
+                for (var i = 0; i < _fun[_name].content.length; i ++) {
+                    dom +=
+                        "<div class='aside-list'>" +
+                            "<ul>" +
+                                "<li class='aside-li'>" +
+                                    "<div class='aside-item'>" +
+                                        "<a href='" + _fun[_name].content[i].link + "' target='frame' class='aside-link'>" +
+                                            "<div class='item-icon'></div>" +
+                                            "<div class='item-title'>" + _fun[_name].content[i].title + "</div>" +
+                                        "</a>" +
+                                    "</div>" +
+                                "</li>" +
+                            "</ul>" +
+                        "</div>";
+                }
+                return dom;
+            } else {
+                throw new Error('no html!');
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    /**
+     * 给nav的按钮绑定点击事件,改变active状态
+     */
+    button.bind('click', function (e) {
+        button.removeClass('active');
+        $(this).addClass('active');
+        aside.html(disFun($(this).data('name'), fun));
+
+        /**
+         * 给aside的按钮绑定点击事件,改变active状态
+         */
+        $('.aside-li').bind('click', function (e) {
+            $('.aside-li').removeClass('active');
+            $(this).addClass('active');
         });
-        frame.getId('page-title').appendChild(a);
-        frame.removeAC(frame.tag, 'active');
-        frame.getId(this.name+'Page').className += ' active';
-        frame.addEvent(a, 'click', function (e) {
-            document.getElementsByName(this.innerHTML)[0].click();
-            frame.removeAC(frame.tag, 'active');
-            frame.getId(that.name+'Page').className += ' active';
-        });
+    });
+
+    /**
+     * 给隐藏按钮绑定点击事件,改变文字的隐藏与显示
+     */
+    navHidden.bind('click', function (e) {
+        nav.hasClass('hidden-nav') ? nav.removeClass('hidden-nav') : nav.addClass('hidden-nav');
     });
 });
-
-var Frame = function (obj) {
-    for (var i in obj) {
-        this[i] = obj[i];
-    }
-};
-Frame.prototype = {
-    create: function (type, o) {
-        var _type = document.createElement(type);
-        for (var i in o) {
-            _type[i] = o[i];
-        }
-        return _type;
-    },
-    getId: methods.getId,
-    addTagEvent: methods.addTagEvent,
-    addEvent: methods.addEvent,
-    indexOf: methods.indexOf,
-    removeClass: methods.removeClass,
-    removeAC: function (dom, target) {
-        for (var i = 0; i < dom.length; i ++) {
-            dom[i].className = methods.removeClass(dom[i].className, target);
-        }
-    }
-};

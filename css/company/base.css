@@ -1,9 +1,24 @@
-body {
-    border-top: 1px solid #CCCCCC;
-}
 #content {
     display: flex;
     flex-flow: column nowrap;
+    font-size: 12px;
+    padding: 0 15px;
+}
+.title {
+    padding: 16px 0;
+    min-height: 70px;
+    box-sizing: border-box;
+}
+.title h5 {
+    display: inline-block;
+    text-indent: 8px;
+    border-left: 2px solid #88B7E0;
+    margin: 8px 8px 8px 0;
+    font-weight: 500;
+}
+i {
+    color: #D0021B;
+    padding: 0 5px;
 }
 .area {
     display: inherit;
@@ -12,21 +27,34 @@ body {
 .option {
     display: inherit;
     align-items: center;
-    height: 40px;
-}
-.option,
-.option label,
-.option input {
-    font-size: 18px;
+    min-height: 40px;
 }
 .option label {
     width: 100px;
+    text-align: right;
+    margin: 0 20px 0 0;
 }
-.option input {
+.option input,
+.option button {
+    width: 30vw;
     min-width: 200px;
     border:1px solid #CCCCCC;
+    border-radius: 0;
+    padding: 6px;
     -webkit-transition: box-shadow 0.3s ease;
     -moz-transition:  box-shadow 0.3s ease;
+}
+.option button {
+    box-sizing: content-box;
+    background: #ffffff;
+}
+.option textarea {
+    margin: 5px 0;
+    border:1px solid #CCCCCC;
+    border-radius: 0;
+    width: 60vw;
+    height: 60px;
+    resize: none;
 }
 .option span {
     padding: 0 10px;
@@ -48,6 +76,17 @@ body {
 }
 .option input:focus + span {
     display: inline-block;
+}
+.submit {
+    padding: 20px 0;
+}
+#submit {
+    border: 0;
+    padding: 10px 0;
+    width: 100px;
+    min-width: 100px;
+    color: #ffffff;
+    background: rgba(103, 166, 217, 1);
 }
 
 @media screen and (max-width: 640px) {

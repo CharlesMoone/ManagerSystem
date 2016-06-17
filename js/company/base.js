@@ -3,7 +3,7 @@ methods.addEvent(window, 'load', function () {
      * 设置提示信息
      * @type {Main}
      */
-    var main = new Main({age: 'age must be number', ID: 'ID\'s number must be 18'});
+    var main = new Main();
 
     /**
      * 给提交按钮绑定click事件
@@ -12,7 +12,13 @@ methods.addEvent(window, 'load', function () {
     main.addEvent(main.getId('submit'), 'click', function () {
         if (!main.getInput()) {
             main.setTip();
+            return ;
         }
+        new Inform({title: '通知', content: '操作成功!'}).alert();
+    });
+
+    main.addTagEvent(document.getElementsByClassName('portrait'), 'click', function (e) {
+        new ImgUpload({title: '上传图片'}).alert();
     });
 
     /**
@@ -66,7 +72,7 @@ Main.prototype = {
     setTip: function () {
         while (this._input.length) {
             var input = this._input.pop();
-            input.nextElementSibling.innerHTML = this.tip[input.name] || (input.name + ' can\'t be null');
+            input.nextElementSibling.innerHTML = this.tip[input.name] || ('不可为空');
             input.nextElementSibling.style.display = 'inline-block';
             input.className = "warning";
         }
