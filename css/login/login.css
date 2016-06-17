@@ -66,6 +66,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: 10px 0 0;
+    left: 0;
 }
 #cancelDiv button {
     height: 30px;
