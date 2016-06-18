@@ -62,9 +62,12 @@ header div {
 .HolyGrail-tag:hover {
     background: #EEEEEE;
 }
-iframe {
+#hash-page {
     width: 100%;
     flex: 1;
+    overflow: auto;
+    top: 50px;
+    bottom: 0;
 }
 
 #nav-hidden {
@@ -112,13 +115,11 @@ iframe {
 }
 .aside-item {
     line-height: 40px;
+    display: flex;
+    flex-flow: row nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
-.aside-link {
-    display: flex;
-    flex-flow: row nowrap;
 }
 .item-icon {
     width: 30px;

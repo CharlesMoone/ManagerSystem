@@ -161,7 +161,7 @@ Delete.prototype.alert = function (id, url) {
      * 调用showMsg方法
      * @target 要把message弹窗在body里显示
      */
-    this.showMsg(window.parent.document.getElementsByTagName('body')[0] || document.getElementsByTagName('body')[0]);
+    this.showMsg(document.getElementsByTagName('body')[0]);
 
     var that = this;
     //冒泡事件绑定,判断点击的目标是否name为confirm,如果是则调用删除方法。
@@ -221,7 +221,7 @@ Inform.prototype.alert = function (callback) {
      * 调用showMsg方法
      * @target 要把message弹窗在body里显示
      */
-    this.showMsg(window.parent.document.getElementsByTagName('body')[0] || document.getElementsByTagName('body')[0]);
+    this.showMsg(document.getElementsByTagName('body')[0]);
 
     var that = this;
     //冒泡事件绑定,判断点击的目标是否name为confirm,如果是则调用删除方法。
@@ -307,7 +307,7 @@ ImgUpload.prototype.alert = function () {
      * 调用showMsg方法
      * @target 要把message弹窗在body里显示
      */
-    this.showMsg(window.parent.document.getElementsByTagName('body')[0]);
+    this.showMsg(document.getElementsByTagName('body')[0]);
 
     /**
      * 如果imgSrc没有的话则不执行显示图片的方法,反之则执行显示图片
@@ -333,7 +333,7 @@ ImgUpload.prototype.alert = function () {
     });
 };
 ImgUpload.prototype.canvasShow = function (imgSrc) {
-    var canvas = document.getElementById("canvasDisplay") || window.parent.document.getElementById("canvasDisplay");
+    var canvas = document.getElementById("canvasDisplay");
     var ctx = canvas.getContext("2d");
     if (!canvas || !canvas.getContext) {
         alert("您的浏览器不支持本功能!请更换浏览器");
@@ -377,7 +377,7 @@ ImgUpload.prototype.canvasDisplay = function (file) {
         alert("您上传的图片格式不为png、jpg、jpeg!请重新上传");
         return ;
     }
-    var canvas = document.getElementById("canvasDisplay") || window.parent.document.getElementById("canvasDisplay");
+    var canvas = document.getElementById("canvasDisplay");
     var ctx = canvas.getContext("2d");
     if (!canvas || !canvas.getContext) {
         alert("您的浏览器不支持本功能!请更换浏览器");

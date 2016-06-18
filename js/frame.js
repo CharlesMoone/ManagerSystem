@@ -11,7 +11,7 @@ require(['jquery'], function ($) {
                 [
                     {
                         title: '基本信息',
-                        link: './html/company/base.html'
+                        link: '/login/html/company/base.html'
                     },
                     {
                         title: '仓库管理',
@@ -20,15 +20,15 @@ require(['jquery'], function ($) {
                 ]
         },
         table: {
-            title: '企业信息',
+            title: '产品信息',
             content:
                 [
                     {
-                        title: '基本信息',
+                        title: '产品管理',
                         link: ''
                     },
                     {
-                        title: '仓库管理',
+                        title: '新增产品',
                         link: ''
                     }
                 ]
@@ -77,12 +77,12 @@ require(['jquery'], function ($) {
                     dom +=
                         "<div class='aside-list'>" +
                             "<ul>" +
-                                "<li class='aside-li'>" +
+                                "<li class='aside-li' data-link='" + _fun[_name].content[i].link + "'>" +
                                     "<div class='aside-item'>" +
-                                        "<a href='" + _fun[_name].content[i].link + "' target='frame' class='aside-link'>" +
-                                            "<div class='item-icon'></div>" +
-                                            "<div class='item-title'>" + _fun[_name].content[i].title + "</div>" +
-                                        "</a>" +
+                                        // "<a href='" + _fun[_name].content[i].link + "' target='frame' class='aside-link'>" +
+                                        "<div class='item-icon'></div>" +
+                                        "<div class='item-title'>" + _fun[_name].content[i].title + "</div>" +
+                                        // "</a>" +
                                     "</div>" +
                                 "</li>" +
                             "</ul>" +
@@ -108,10 +108,14 @@ require(['jquery'], function ($) {
         /**
          * 给aside的按钮绑定点击事件,改变active状态
          */
-        $('.aside-li').bind('click', function (e) {
+        var li = $('.aside-li');
+        li.bind('click', function (e) {
             $('.aside-li').removeClass('active');
             $(this).addClass('active');
+            window.location.hash = $(this).data('link');
         });
+
+        li[0].click();
     });
 
     /**
@@ -120,4 +124,16 @@ require(['jquery'], function ($) {
     navHidden.bind('click', function (e) {
         nav.hasClass('hidden-nav') ? nav.removeClass('hidden-nav') : nav.addClass('hidden-nav');
     });
+
+    window.onhashchange = function (e) {
+        var link = location.hash.substr(1);
+        console.log(link);
+        $.ajax({
+            url: link,
+            success: function (data) {
+                $("#hash-page").html(data);
+                pageLoad();
+            }
+        });
+    };
 });
