@@ -68,6 +68,7 @@ header div {
     overflow: auto;
     top: 50px;
     bottom: 0;
+    color: #000000;
 }
 
 #nav-hidden {

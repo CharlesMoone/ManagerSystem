@@ -11,7 +11,7 @@ require(['jquery'], function ($) {
                 [
                     {
                         title: '基本信息',
-                        link: '/login/html/company/base.html'
+                        link: './html/company/base.html'
                     },
                     {
                         title: '仓库管理',

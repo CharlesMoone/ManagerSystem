@@ -14,6 +14,10 @@ function pageLoad() {
             main.setTip();
             return ;
         }
+        if (!main.check()) {
+            main.setTip();
+            return ;
+        }
         new Inform({title: '通知', content: '操作成功!'}).alert();
     });
 
@@ -26,7 +30,6 @@ function pageLoad() {
      * 如果check为false则返回。
      */
     $('input').on('change', function () {
-        if (!main.check()) return ;
         this.nextElementSibling.style.display = null;
         this.nextElementSibling.innerHTML = main._tip[this.name];
         this.className = null;
@@ -78,6 +81,9 @@ Main.prototype = {
         }
     },
     check: function () {
+        /**
+         * 做检查,如果发现某项的错误放出提示
+         */
         return true;
     }
 };
