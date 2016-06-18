@@ -1,23 +1,27 @@
-methods.addEvent(window, 'load', function () {
+function pageLoad() {
     /**
      * 设置提示信息
      * @type {Main}
      */
-    var main = new Main();
+    var main = new Main({});
 
     /**
      * 给提交按钮绑定click事件
      * 判断所有需要检查的input是否为空,是执行setTip(),否则return(这里应该是进行提交数据)
      */
-    main.addEvent(main.getId('submit'), 'click', function () {
+    $("#submit").on('click', function () {
         if (!main.getInput()) {
+            main.setTip();
+            return ;
+        }
+        if (!main.check()) {
             main.setTip();
             return ;
         }
         new Inform({title: '通知', content: '操作成功!'}).alert();
     });
 
-    main.addTagEvent(document.getElementsByClassName('portrait'), 'click', function (e) {
+    $('.portrait').on('click', function () {
         new ImgUpload({title: '上传图片'}).alert();
     });
 
@@ -25,13 +29,12 @@ methods.addEvent(window, 'load', function () {
      * 给所有的input绑定change事件
      * 如果check为false则返回。
      */
-    main.addTagEvent(document.getElementsByTagName('input'), 'change', function (e) {
-        if (!main.check()) return ;
+    $('input').on('change', function () {
         this.nextElementSibling.style.display = null;
         this.nextElementSibling.innerHTML = main._tip[this.name];
         this.className = null;
     });
-});
+}
 
 /**
  * Main类,tip为提示文字对象
@@ -48,7 +51,7 @@ var Main = function (tip) {
      * @public
      */
     this._tip = {};
-    this.input = document.getElementsByTagName('input');
+    this.input = $('input');
     this._input = null;
     var that = this;
     (function () {
@@ -78,14 +81,9 @@ Main.prototype = {
         }
     },
     check: function () {
+        /**
+         * 做检查,如果发现某项的错误放出提示
+         */
         return true;
-    },
-    addEvent: methods.addEvent,
-    addTagEvent: function (dom, linear, callback, start, end) {
-        if (start == dom.length) return ;
-        start = start || 0;
-        this.addEvent(dom[start++], linear, callback);
-        this.addTagEvent(dom, linear, callback, start);
-    },
-    getId: methods.getId
+    }
 };

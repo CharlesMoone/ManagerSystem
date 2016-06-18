@@ -1,0 +1,81 @@
+table {
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+tr {
+    border: 1px solid #e1e6eb;
+}
+thead, tfoot {
+    background: #F5F6FA;
+    color: #999;
+}
+tfoot div {
+    display: flex;
+    align-items: center;
+}
+th, td {
+    padding: 8px;
+}
+.dus {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+.dus img {
+    margin: 0 5px;
+    width: 20px;
+    height: 20px;
+    background: #000000;
+}
+.pagination {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+.pagination li {
+    border: 1px solid #dddddd;
+    border-right: 0;
+    padding: 8px 5px;
+    width: 20px;
+    box-sizing: content-box;
+    background: #ffffff;
+    cursor: pointer;
+}
+.pagination li:hover {
+    background: #EEEEEE;
+}
+.pagination .active {
+    background-color: #09C;
+    border: 1px solid #09C;
+    color: #ffffff;
+}
+.pagination .active:hover {
+    background: #09C;
+}
+.pagination .active+li {
+    border-left: 0;
+}
+.pagination li:last-child {
+    border-right: 1px solid #dddddd;
+}
+.pageTip {
+    flex: 1;
+    text-align: right;
+    padding: 0 20px 0 0;
+}
+.pagination+input {
+    margin: 0 20px;
+    width: 40px;
+    height: 32px;
+    box-sizing: border-box;
+    font-size: 16px;
+    text-align: center;
+}
+.pageGo {
+    padding: 0 8px;
+    line-height: 30px;
+    color: #333;
+    border: 1px solid #dddddd;
+    background-color: #f7f7f7;
+}
