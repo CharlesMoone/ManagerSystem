@@ -15,7 +15,7 @@ require(['jquery'], function ($) {
                     },
                     {
                         title: '仓库管理',
-                        link: ''
+                        link: './html/company/warehouse.html'
                     }
                 ]
         },
@@ -127,7 +127,6 @@ require(['jquery'], function ($) {
 
     window.onhashchange = function (e) {
         var link = location.hash.substr(1);
-        console.log(link);
         $.ajax({
             url: link,
             success: function (data) {
