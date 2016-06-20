@@ -115,7 +115,7 @@ require(['jquery'], function ($) {
             window.location.hash = $(this).data('info');
         });
 
-        var info = !location.hash ? undefined : eval("(" + location.hash.substr(1) + ")");
+        var info = !location.hash ? undefined : eval("(" + decodeURI(location.hash.substr(1)) + ")");
         if (!info || (info.navNumber != $(this).index())) {
             li[0].click();
         }
@@ -134,7 +134,7 @@ require(['jquery'], function ($) {
             console.log("没有hash");
             return ;
         }
-        info = eval("(" + info.substr(1) + ")");
+        info = eval("(" + decodeURI(info.substr(1)) + ")");
         button[info.navNumber-1].click();
         var li = $('.aside-li');
         $(li[info.asideNumber]).addClass('active');
