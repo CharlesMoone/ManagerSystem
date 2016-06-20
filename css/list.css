@@ -6,16 +6,31 @@
     color: #000000;
 }
 .contentTitle {
+    display: inherit;
     padding: 16px 0;
     min-height: 70px;
     box-sizing: border-box;
+    font-weight: 500;
 }
 .contentTitle h5 {
     display: inline-block;
     text-indent: 8px;
     border-left: 2px solid #88B7E0;
-    margin: 8px 8px 8px 0;
+    margin: 8px 60px 8px 0;
     font-weight: 500;
+}
+.contentTitle div {
+    padding: 8px 0;
+    display: inherit;
+    justify-content: center;
+    width: 100px;
+    border: 1px solid #666;
+    color: #666;
+    cursor: pointer;
+}
+.contentTitle div:hover {
+    color: #88B7E0;
+    border-color: #88B7E0;
 }
 i {
     color: #D0021B;
