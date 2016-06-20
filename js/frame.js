@@ -65,29 +65,25 @@ require(['jquery'], function ($) {
      * @type _name: string
      * @param _fun nav的内容管理
      * @type _fun: object
+     * @param _number: number
      * @returns {string}
      */
-    function disFun(_name, _fun) {
+    function disFun(_name, _fun, _number) {
         try {
             if (_name in _fun) {
                 aside.removeClass('hidden');
                 nav.addClass('hidden-nav');
-                var dom = "<span>" + _fun[_name].title + "</span>";
+                var dom = "<span>" + _fun[_name].title + "</span><div class='aside-list'><ul>";
                 for (var i = 0; i < _fun[_name].content.length; i ++) {
                     dom +=
-                        "<div class='aside-list'>" +
-                            "<ul>" +
-                                "<li class='aside-li' data-link='" + _fun[_name].content[i].link + "'>" +
-                                    "<div class='aside-item'>" +
-                                        // "<a href='" + _fun[_name].content[i].link + "' target='frame' class='aside-link'>" +
-                                        "<div class='item-icon'></div>" +
-                                        "<div class='item-title'>" + _fun[_name].content[i].title + "</div>" +
-                                        // "</a>" +
-                                    "</div>" +
-                                "</li>" +
-                            "</ul>" +
-                        "</div>";
+                        "<li class='aside-li' data-info='{link:\"" + _fun[_name].content[i].link + "\", asideNumber:" + i + ", navNumber:" + _number + "}'>" +
+                            "<div class='aside-item'>" +
+                                "<div class='item-icon'></div>" +
+                                "<div class='item-title'>" + _fun[_name].content[i].title + "</div>" +
+                            "</div>" +
+                        "</li>";
                 }
+                dom += "</ul></div>";
                 return dom;
             } else {
                 throw new Error('no html!');
@@ -103,7 +99,7 @@ require(['jquery'], function ($) {
     button.bind('click', function (e) {
         button.removeClass('active');
         $(this).addClass('active');
-        aside.html(disFun($(this).data('name'), fun));
+        aside.html(disFun($(this).data('name'), fun, $(this).index()));
 
         /**
          * 给aside的按钮绑定点击事件,改变active状态
@@ -112,10 +108,13 @@ require(['jquery'], function ($) {
         li.bind('click', function (e) {
             $('.aside-li').removeClass('active');
             $(this).addClass('active');
-            window.location.hash = $(this).data('link');
+            window.location.hash = $(this).data('info');
         });
 
-        li[0].click();
+        var info = !location.hash ? undefined : eval("(" + location.hash.substr(1) + ")");
+        if (!info || (info.navNumber != $(this).index())) {
+            li[0].click();
+        }
     });
 
     /**
@@ -126,13 +125,28 @@ require(['jquery'], function ($) {
     });
 
     window.onhashchange = function (e) {
-        var link = location.hash.substr(1);
+        var info = location.hash;
+        if (!info) {
+            console.log("没有hash");
+            return ;
+        }
+        info = eval("(" + info.substr(1) + ")");
+        console.log(info);
+        button[info.navNumber-1].click();
+        var li = $('.aside-li');
+        $(li[info.asideNumber]).addClass('active');
+        /**
+         * 对nav和aside的状态存储
+         */
+
         $.ajax({
-            url: link,
+            url: info.link,
             success: function (data) {
                 $("#hash-page").html(data);
                 pageLoad();
             }
         });
     };
+
+    window.onhashchange();
 });
