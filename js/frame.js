@@ -16,6 +16,10 @@ require(['jquery'], function ($) {
                     {
                         title: '仓库管理',
                         link: './html/company/warehouse.html'
+                    },
+                    {
+                        title: '新增仓库',
+                        link: './html/company/addWarehouse.html'
                     }
                 ]
         },
@@ -131,7 +135,6 @@ require(['jquery'], function ($) {
             return ;
         }
         info = eval("(" + info.substr(1) + ")");
-        console.log(info);
         button[info.navNumber-1].click();
         var li = $('.aside-li');
         $(li[info.asideNumber]).addClass('active');
