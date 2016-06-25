@@ -29,11 +29,11 @@ $(document).ready(function () {
                 [
                     {
                         title: '产品管理',
-                        link: ''
+                        link: './html/product/product.html'
                     },
                     {
                         title: '新增产品',
-                        link: ''
+                        link: './html/product/addProduct.html'
                     }
                 ]
         }
