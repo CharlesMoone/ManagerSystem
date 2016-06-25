@@ -1,7 +1,7 @@
 require(['jquery'], function ($) {
     /**
      * nav及内容管理
-     * @type {{company: {title: string, content: *[]}, table: {title: string, content: *[]}}}
+     * @type {{company: {title: string, content: *[]}, product: {title: string, content: *[]}}}
      */
     var fun = {
         company:
@@ -23,7 +23,7 @@ require(['jquery'], function ($) {
                     }
                 ]
         },
-        table: {
+        product: {
             title: '产品信息',
             content:
                 [
@@ -138,10 +138,10 @@ require(['jquery'], function ($) {
         button[info.navNumber-1].click();
         var li = $('.aside-li');
         $(li[info.asideNumber]).addClass('active');
+        
         /**
          * 对nav和aside的状态存储
          */
-
         $.ajax({
             url: info.link,
             success: function (data) {
