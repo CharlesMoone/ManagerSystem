@@ -13,11 +13,19 @@
     font-weight: 500;
 }
 .contentTitle h5 {
-    display: inline-block;
+    display: inherit;
     text-indent: 8px;
     border-left: 2px solid #88B7E0;
     margin: 8px 60px 8px 0;
     font-weight: 500;
+    align-items: center;
+}
+.contentTitle h5 span {
+    cursor: default;
+    height: 22px;
+}
+.contentTitle h5 span:hover:first-child {
+    cursor: pointer;
 }
 .contentTitle div {
     padding: 8px 0;
