@@ -8,7 +8,7 @@
  * @constructor Main
  */
 var TipClass = function (tip) {
-    this.constructor = Main;
+    this.constructor = TipClass;
     this.tip = tip || {};
     /**
      * 用来存储需要提示的目标及内容
