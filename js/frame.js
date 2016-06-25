@@ -1,4 +1,4 @@
-require(['jquery'], function ($) {
+$(document).ready(function () {
     /**
      * nav及内容管理
      * @type {{company: {title: string, content: *[]}, product: {title: string, content: *[]}}}
