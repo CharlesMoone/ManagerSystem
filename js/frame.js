@@ -138,10 +138,10 @@ require(['jquery'], function ($) {
         button[info.navNumber-1].click();
         var li = $('.aside-li');
         $(li[info.asideNumber]).addClass('active');
+        
         /**
          * 对nav和aside的状态存储
          */
-
         $.ajax({
             url: info.link,
             success: function (data) {
