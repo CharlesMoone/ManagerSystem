@@ -48,11 +48,15 @@ i {
     display: inherit;
     flex-flow: inherit;
 }
-.option {
+.option, .information {
     display: inherit;
     align-items: center;
     min-height: 40px;
 }
+.information {
+
+}
+
 .option label {
     width: 100px;
     text-align: right;
