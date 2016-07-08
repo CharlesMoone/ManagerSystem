@@ -7,6 +7,7 @@
 }
 .contentTitle {
     display: inherit;
+    width: 100%;
     padding: 16px 0;
     min-height: 70px;
     box-sizing: border-box;
@@ -54,13 +55,37 @@ i {
     min-height: 40px;
 }
 .information {
-
+    width: 25%;
+    margin: 0 0 10px 0;
+}
+@media screen and (max-width: 710px) {
+    .information {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 870px) and (min-width: 710px) {
+    .information {
+        width: 50%;
+    }
+}
+@media screen and (max-width: 1190px) and (min-width: 870px) {
+    .information {
+        width: 33.33%;
+    }
+}
+.area_table {
+    flex-flow: row;
+    flex-wrap: wrap;
 }
 
 .option label {
     width: 100px;
     text-align: right;
     margin: 0 20px 0 0;
+}
+.information label {
+    width: 30%;
+    text-align: center;
 }
 .option input,
 .option button {
@@ -69,6 +94,20 @@ i {
     border:1px solid #CCCCCC;
     border-radius: 0;
     padding: 6px;
+    -webkit-transition: box-shadow 0.3s ease;
+    -moz-transition:  box-shadow 0.3s ease;
+}
+.information input,
+.information button,
+.information select {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 70%;
+    border:1px solid #CCCCCC;
+    border-radius: 0;
+    padding: 6px;
+    height: 28px;
     -webkit-transition: box-shadow 0.3s ease;
     -moz-transition:  box-shadow 0.3s ease;
 }

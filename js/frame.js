@@ -36,6 +36,16 @@ $(document).ready(function () {
                         link: './html/product/addProduct.html'
                     }
                 ]
+        },
+        produce: {
+            title: '生产信息',
+            content:
+                [
+                    {
+                        title: '质量码生产信息关联',
+                        link: './html/produce/produceCode.html'
+                    }
+                ]
         }
     };
 

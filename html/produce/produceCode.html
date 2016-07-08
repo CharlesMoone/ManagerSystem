@@ -1,0 +1,121 @@
+<div id="content">
+    <div class="area area_table">
+        <div class="contentTitle">
+            <h5><span>质量码生产信息关联</span></h5>
+        </div>
+        <div class="information">
+            <label for="product">产品</label>
+            <select name="product" id="product">
+                <option value="0">请选择产品</option>
+            </select>
+        </div>
+        <div class="information">
+            <label for="produceInfo">生产信息</label>
+            <select name="produceInfo" id="produceInfo">
+                <option value="0">请选择生产信息</option>
+            </select>
+        </div>
+        <div class="information">
+            <label for="startCode">起始码段</label>
+            <input type="text" name="startCode" id="startCode" />
+        </div>
+        <div class="information">
+            <label for="endCode">结束码段</label>
+            <input type="text" name="endCode" id="endCode" />
+        </div>
+    </div>
+    <div class="contentTitle">
+        <h5><span>生产信息关联表</span></h5>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th><input type="checkbox" name="selectAll" id="selectAll" /></th>
+            <th>产品名称</th>
+            <th>产品规格</th>
+            <th>起始码段</th>
+            <th>结束码段</th>
+            <th>生产信息名称</th>
+            <th>关联时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="checkbox" name="select" /></td>
+            <td>菊花茶</td>
+            <td>70g</td>
+            <td>10191000000023</td>
+            <td>10191000000034</td>
+            <td>菊花茶16年5月尾批</td>
+            <td>2016年5月26日 20:28:38</td>
+            <td>
+                <div class="dus">
+                    <img src="img/skype.png" alt="delete" />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="select" /></td>
+            <td>菊花茶</td>
+            <td>70g</td>
+            <td>10191000000023</td>
+            <td>10191000000034</td>
+            <td>菊花茶16年5月尾批</td>
+            <td>2016年5月26日 20:28:38</td>
+            <td>
+                <div class="dus">
+                    <img src="img/skype.png" alt="delete" />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="select" /></td>
+            <td>菊花茶</td>
+            <td>70g</td>
+            <td>10191000000023</td>
+            <td>10191000000034</td>
+            <td>菊花茶16年5月尾批</td>
+            <td>2016年5月26日 20:28:38</td>
+            <td>
+                <div class="dus">
+                    <img src="img/skype.png" alt="delete" />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="select" /></td>
+            <td>菊花茶</td>
+            <td>70g</td>
+            <td>10191000000023</td>
+            <td>10191000000034</td>
+            <td>菊花茶16年5月尾批</td>
+            <td>2016年5月26日 20:28:38</td>
+            <td>
+                <div class="dus">
+                    <img src="img/skype.png" alt="delete" />
+                </div>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="8">
+                <div>
+                    <span class="pageTip">共12条，每页显示：20条</span>
+                    <ul class="pagination">
+                        <li class="pageBefore">‹</li>
+                        <li class="active">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li class="pageNext">›</li>
+                    </ul>
+                    <input type="text" name="pageTarget" />
+                    <span class="pageGo">GO</span>
+                </div>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+<script src="js/produce/produceCode.js"></script>
