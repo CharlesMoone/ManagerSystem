@@ -163,7 +163,7 @@ i {
 .submit {
     padding: 20px 0;
 }
-#submit {
+#submit, #view {
     border: 0;
     padding: 10px 0;
     width: 100px;

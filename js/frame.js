@@ -60,7 +60,7 @@ $(document).ready(function () {
             content:
                 [
                     {
-                        title: '生产过程纪录',
+                        title: '生产过程记录',
                         link: './html/process/process.html'
                     },
                     {

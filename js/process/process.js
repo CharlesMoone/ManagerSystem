@@ -18,4 +18,8 @@ function pageLoad() {
         var checkBox = $('input[type=checkbox]');
         $(this).prop('checked') == true ? checkBox.prop('checked', true) : checkBox.prop('checked', false);
     });
+
+    $("#addProcess").click(function (e) {
+        window.location.hash = "{link:'./html/process/addProcess.html', asideNumber: 1, navNumber: 4}";
+    });
 }
