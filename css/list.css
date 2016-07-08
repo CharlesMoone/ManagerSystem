@@ -133,6 +133,11 @@ i {
     border:#87C6F9 1px solid;
     box-shadow: 0 0 8px rgba(103, 166, 217, 1);
 }
+.information input:focus {
+    outline: 0;
+    border:#87C6F9 1px solid;
+    box-shadow: 0 0 8px rgba(103, 166, 217, 1);
+}
 .warning {
     outline: 0;
     border:#E26359 1px solid;
