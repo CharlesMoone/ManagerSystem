@@ -120,6 +120,8 @@ i {
 .option button {
     box-sizing: content-box;
     background: #ffffff;
+    -webkit-transition: box-shadow 0.3s ease;
+    -moz-transition:  box-shadow 0.3s ease;
 }
 .option textarea {
     margin: 5px 0;
@@ -128,18 +130,21 @@ i {
     width: 60vw;
     height: 60px;
     resize: none;
+    -webkit-transition: box-shadow 0.3s ease;
+    -moz-transition:  box-shadow 0.3s ease;
 }
 .option span {
     padding: 0 10px;
     font-size: 12px;
     display: none;
 }
-.option input:focus {
-    outline: 0;
-    border:#87C6F9 1px solid;
-    box-shadow: 0 0 8px rgba(103, 166, 217, 1);
-}
-.information input:focus {
+.option input:focus,
+.information input:focus,
+.option button:focus,
+.option select:focus,
+.information select:focus,
+.option textarea:focus,
+.information textarea:focus {
     outline: 0;
     border:#87C6F9 1px solid;
     box-shadow: 0 0 8px rgba(103, 166, 217, 1);
