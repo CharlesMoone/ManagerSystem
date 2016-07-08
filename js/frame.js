@@ -54,6 +54,20 @@ $(document).ready(function () {
                         link: './html/produce/connectCode.html'
                     }
                 ]
+        },
+        process: {
+            title: '生产过程',
+            content:
+                [
+                    {
+                        title: '生产过程纪录',
+                        link: './html/process/process.html'
+                    },
+                    {
+                        title: '新增生产过程',
+                        link: './html/process/addProcess.html'
+                    }
+                ]
         }
     };
 

@@ -94,9 +94,13 @@ i {
     min-width: 200px;
     border:1px solid #CCCCCC;
     border-radius: 0;
-    padding: 6px;
+    padding: 6px 0;
     -webkit-transition: box-shadow 0.3s ease;
     -moz-transition:  box-shadow 0.3s ease;
+}
+.option select,
+.information select {
+    height: 28px;
 }
 .option p input {
     width: 30px;
@@ -106,14 +110,10 @@ i {
 .information input,
 .information button,
 .information select {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
     width: 70%;
     border:1px solid #CCCCCC;
     border-radius: 0;
-    padding: 6px;
-    height: 28px;
+    padding: 6px 0;
     -webkit-transition: box-shadow 0.3s ease;
     -moz-transition:  box-shadow 0.3s ease;
 }
@@ -125,7 +125,7 @@ i {
     margin: 5px 0;
     border:1px solid #CCCCCC;
     border-radius: 0;
-    width: 60%;
+    width: 60vw;
     height: 60px;
     resize: none;
 }
@@ -165,9 +165,6 @@ i {
     min-width: 100px;
     color: #ffffff;
     background: rgba(103, 166, 217, 1);
-}
-.information #submit {
-    padding: 0;
 }
 .information:last-child {
     margin: 0;
