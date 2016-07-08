@@ -44,6 +44,14 @@ $(document).ready(function () {
                     {
                         title: '质量码生产信息关联',
                         link: './html/produce/produceCode.html'
+                    },
+                    {
+                        title: '新增生产信息',
+                        link: './html/produce/addProduce.html'
+                    },
+                    {
+                        title: '箱码质量码关联',
+                        link: './html/produce/connectCode.html'
                     }
                 ]
         }

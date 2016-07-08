@@ -88,7 +88,8 @@ i {
     text-align: center;
 }
 .option input,
-.option button {
+.option button,
+.option select {
     width: 30vw;
     min-width: 200px;
     border:1px solid #CCCCCC;
@@ -96,6 +97,11 @@ i {
     padding: 6px;
     -webkit-transition: box-shadow 0.3s ease;
     -moz-transition:  box-shadow 0.3s ease;
+}
+.option p input {
+    width: 30px;
+    min-width: inherit;
+    margin: 0 10px;
 }
 .information input,
 .information button,
@@ -119,7 +125,7 @@ i {
     margin: 5px 0;
     border:1px solid #CCCCCC;
     border-radius: 0;
-    width: 60vw;
+    width: 60%;
     height: 60px;
     resize: none;
 }
@@ -159,6 +165,16 @@ i {
     min-width: 100px;
     color: #ffffff;
     background: rgba(103, 166, 217, 1);
+}
+.information #submit {
+    padding: 0;
+}
+.information:last-child {
+    margin: 0;
+    padding: 0;
+    display: inherit;
+    justify-content: center;
+    width: 100%;
 }
 
 @media screen and (max-width: 640px) {

@@ -1,0 +1,86 @@
+<div id="content">
+    <div class="area">
+        <div class="contentTitle">
+            <h5><span>箱码质量码关联</span></h5>
+        </div>
+        <div class="option">
+            <p>一箱装<input type="text" />质量码</p>
+        </div>
+        <div class="option">
+            <label for="box">箱码<br />（一行一段）</label>
+            <textarea name="box" id="box" cols="30" rows="5" placeholder="例:10010000000001-10010123456789"></textarea>
+        </div>
+        <div class="option">
+            <label for="box_scrap">箱码废标<br />（一行一个）</label>
+            <textarea name="box_scrap" id="box_scrap" cols="30" rows="5" placeholder="例:10010000000001-10010123456789"></textarea>
+        </div>
+        <div class="option">
+            <label for="bottom">质量码<br />（一行一段）</label>
+            <textarea name="bottom" id="bottom" cols="30" rows="5" placeholder="例:10010000000001-10010123456789"></textarea>
+        </div>
+        <div class="option">
+            <label for="bottom_scrap">质量码废标<br />（一行一个）</label>
+            <textarea name="bottom_scrap" id="bottom_scrap" cols="30" rows="5" placeholder="例:10010000000001-10010123456789"></textarea>
+        </div>
+        <div class="option submit">
+            <label for="submit">&nbsp;</label>
+            <button id="submit">预览</button>
+        </div>
+    </div>
+    <div class="contentTitle">
+        <h5><span>预览</span></h5>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>箱码</th>
+            <th>质量码</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>100100101001010</td>
+            <td>100100101001011</td>
+        </tr>
+        <tr>
+            <td>100100101001010</td>
+            <td>100100101001011</td>
+        </tr>
+        <tr>
+            <td>100100101001010</td>
+            <td>100100101001011</td>
+        </tr>
+        <tr>
+            <td>100100101001010</td>
+            <td>100100101001011</td>
+        </tr>
+        <tr>
+            <td>100100101001010</td>
+            <td>100100101001011</td>
+        </tr>
+        <tr>
+            <td>100100101001010</td>
+            <td>100100101001011</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="2">
+                <div>
+                    <span class="pageTip">共12条，每页显示：20条</span>
+                    <ul class="pagination">
+                        <li class="pageBefore">‹</li>
+                        <li class="active">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li class="pageNext">›</li>
+                    </ul>
+                    <input type="text" name="pageTarget" />
+                    <span class="pageGo">GO</span>
+                </div>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+<script src="js/produce/connectCode.js"></script>
