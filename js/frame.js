@@ -156,7 +156,7 @@ $(document).ready(function () {
     /**
      * 给nav的按钮绑定点击事件,改变active状态
      */
-    button.bind('click', function (e) {
+    button.click(function (e) {
         if ($(this).hasClass('active')) return ;
         button.removeClass('active');
         $(this).addClass('active');
@@ -178,10 +178,12 @@ $(document).ready(function () {
         }
     });
 
+    button.tipsy({gravity: 'w'});
+
     /**
      * 给隐藏按钮绑定点击事件,改变文字的隐藏与显示
      */
-    navHidden.bind('click', function (e) {
+    navHidden.click(function (e) {
         nav.hasClass('hidden-nav') ? nav.removeClass('hidden-nav') : nav.addClass('hidden-nav');
     });
 
