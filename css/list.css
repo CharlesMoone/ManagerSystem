@@ -101,7 +101,8 @@ i {
     min-width: 200px;
     border:1px solid #CCCCCC;
     border-radius: 0;
-    padding: 6px;
+    padding: 6px 0;
+    text-indent: 10px;
     -webkit-transition: box-shadow 0.3s ease;
     -moz-transition:  box-shadow 0.3s ease;
 }
