@@ -21,6 +21,7 @@ var TipClass = function (tip) {
     var that = this;
     (function () {
         for (var i = 0; i < that.input.length; i ++) {
+            if (that.input.attr('type') == 'checkbox') continue;
             that._tip[that.input[i].name] = that.input[i].nextElementSibling.innerHTML;
         }
     })();

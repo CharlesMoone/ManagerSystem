@@ -78,6 +78,20 @@ $(document).ready(function () {
                         link: './html/trace/trace.html'
                     }
                 ]
+        },
+        marketing: {
+            title: '营销管理',
+            content:
+                [
+                    {
+                        title: '微信红包活动',
+                        link: './html/marketing/marketing.html'
+                    },
+                    {
+                        title: '新增红包活动',
+                        link: './html/marketing/addMarketing.html'
+                    }
+                ]
         }
     };
 
@@ -143,6 +157,7 @@ $(document).ready(function () {
      * 给nav的按钮绑定点击事件,改变active状态
      */
     button.bind('click', function (e) {
+        if ($(this).hasClass('active')) return ;
         button.removeClass('active');
         $(this).addClass('active');
         aside.html(disFun($(this).data('name'), fun, $(this).index()));
@@ -179,6 +194,7 @@ $(document).ready(function () {
         info = eval("(" + decodeURI(info.substr(1)) + ")");
         button[info.navNumber-1].click();
         var li = $('.aside-li');
+        li.removeClass('active');
         $(li[info.asideNumber]).addClass('active');
         
         /**
