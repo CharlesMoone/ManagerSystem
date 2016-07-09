@@ -52,8 +52,11 @@ fieldset, img {
 button, input, select, textarea {
     vertical-align: middle
 }
-button, textarea {
+button {
     cursor: pointer
+}
+textarea {
+    cursor: text;
 }
 
 table {

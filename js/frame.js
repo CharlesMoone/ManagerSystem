@@ -36,6 +36,62 @@ $(document).ready(function () {
                         link: './html/product/addProduct.html'
                     }
                 ]
+        },
+        produce: {
+            title: '生产信息',
+            content:
+                [
+                    {
+                        title: '质量码生产信息关联',
+                        link: './html/produce/produceCode.html'
+                    },
+                    {
+                        title: '新增生产信息',
+                        link: './html/produce/addProduce.html'
+                    },
+                    {
+                        title: '箱码质量码关联',
+                        link: './html/produce/connectCode.html'
+                    }
+                ]
+        },
+        process: {
+            title: '生产过程',
+            content:
+                [
+                    {
+                        title: '生产过程记录',
+                        link: './html/process/process.html'
+                    },
+                    {
+                        title: '新增生产过程',
+                        link: './html/process/addProcess.html'
+                    }
+                ]
+        },
+        trace: {
+            title: '溯源追踪',
+            content:
+                [
+                    {
+                        title: '溯源管理',
+                        link: './html/trace/trace.html'
+                    }
+                ]
+        },
+        marketing: {
+            title: '营销管理',
+            content:
+                [
+                    {
+                        title: '微信红包活动',
+                        link: './html/marketing/marketing.html'
+                    },
+                    {
+                        title: '新增红包活动',
+                        link: './html/marketing/addMarketing.html'
+                    }
+                ]
         }
     };
 
@@ -100,7 +156,8 @@ $(document).ready(function () {
     /**
      * 给nav的按钮绑定点击事件,改变active状态
      */
-    button.bind('click', function (e) {
+    button.click(function (e) {
+        if ($(this).hasClass('active')) return ;
         button.removeClass('active');
         $(this).addClass('active');
         aside.html(disFun($(this).data('name'), fun, $(this).index()));
@@ -121,10 +178,12 @@ $(document).ready(function () {
         }
     });
 
+    button.tipsy({gravity: 'w'});
+
     /**
      * 给隐藏按钮绑定点击事件,改变文字的隐藏与显示
      */
-    navHidden.bind('click', function (e) {
+    navHidden.click(function (e) {
         nav.hasClass('hidden-nav') ? nav.removeClass('hidden-nav') : nav.addClass('hidden-nav');
     });
 
@@ -137,6 +196,7 @@ $(document).ready(function () {
         info = eval("(" + decodeURI(info.substr(1)) + ")");
         button[info.navNumber-1].click();
         var li = $('.aside-li');
+        li.removeClass('active');
         $(li[info.asideNumber]).addClass('active');
         
         /**

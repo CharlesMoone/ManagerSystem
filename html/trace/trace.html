@@ -1,0 +1,77 @@
+<style>
+    .option ul {
+        margin: 0 0 0 20px;
+        list-style: inherit;
+    }
+    .option ul li {
+        list-style: inherit;
+        margin: 0 0 0 20px;
+        line-height: 20px;
+    }
+</style>
+<div id="content">
+    <div class="area">
+        <div class="contentTitle">
+            <h5><span>质量码溯源信息查询</span></h5>
+        </div>
+        <div class="option">
+            <label for="code"><i>*</i>质量码</label>
+            <input type="text" name="code" id="code" />
+            <span>例: 10191000000023</span>
+        </div>
+        <div class="option submit">
+            <label for="submit">&nbsp;</label>
+            <button id="submit">查询</button>
+        </div>
+    </div>
+    <div class="area area_show">
+        <div class="contentTitle">
+            <h5><span>产品信息</span></h5>
+        </div>
+        <div class="option">
+            <label for="product">产品名称</label>
+            <input type="text" name="product" id="product" value="菊花茶" readonly="readonly" />
+        </div>
+        <div class="option">
+            <label for="spec">产品规格</label>
+            <input type="text" name="spec" id="spec" value="70g" readonly="readonly" />
+        </div>
+        <div class="option">
+            <label for="price">产品价格</label>
+            <input type="text" name="price" id="price" value="100元" readonly="readonly" />
+        </div>
+        <div class="contentTitle">
+            <h5><span>生产信息</span></h5>
+        </div>
+        <div class="option">
+            <label for="name">生产信息名称</label>
+            <input type="text" name="name" id="name" value="菊花茶16年5月尾批" readonly="readonly" />
+        </div>
+        <div class="option">
+            <label for="16">包装标准</label>
+            <input type="text" name="16" id="16" value="纸盒" readonly="readonly" />
+        </div>
+        <div class="option">
+            <label for="19">包装操作人</label>
+            <input type="text" name="19" id="19" value="刘大锣" readonly="readonly" />
+        </div>
+        <div class="option">
+            <label for="20">贮藏时间</label>
+            <input type="text" name="20" id="20" value="常温1年" readonly="readonly" />
+        </div>
+        <div class="contentTitle">
+            <h5><span>出入库记录</span></h5>
+        </div>
+        <div class="option">
+            <ul>
+                <li>2016年5月28日 12:12:04&nbsp;&nbsp;- 入库 - 西青库</li>
+                <li>2016年5月28日 12:12:04&nbsp;&nbsp;- 入库 - 西青库</li>
+                <li>2016年5月28日 12:12:04&nbsp;&nbsp;- 入库 - 西青库</li>
+                <li>2016年5月28日 12:12:04&nbsp;&nbsp;- 入库 - 西青库</li>
+                <li>2016年5月28日 12:12:04&nbsp;&nbsp;- 入库 - 西青库</li>
+                <li>2016年5月28日 12:12:04&nbsp;&nbsp;- 入库 - 西青库</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="js/trace/trace.js"></script>

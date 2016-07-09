@@ -7,6 +7,7 @@
 }
 .contentTitle {
     display: inherit;
+    width: 100%;
     padding: 16px 0;
     min-height: 70px;
     box-sizing: border-box;
@@ -48,29 +49,88 @@ i {
     display: inherit;
     flex-flow: inherit;
 }
-.option {
+.option, .information {
     display: inherit;
     align-items: center;
     min-height: 40px;
 }
+.information {
+    width: 25%;
+    margin: 0 0 10px 0;
+}
+@media screen and (max-width: 710px) {
+    .information {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 870px) and (min-width: 710px) {
+    .information {
+        width: 50%;
+    }
+}
+@media screen and (max-width: 1190px) and (min-width: 870px) {
+    .information {
+        width: 33.33%;
+    }
+}
+.area_table {
+    flex-flow: row;
+    flex-wrap: wrap;
+}
+.area_show label,
+.area_show input {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
 .option label {
     width: 100px;
     text-align: right;
     margin: 0 20px 0 0;
 }
+.information label {
+    width: 30%;
+    text-align: center;
+}
 .option input,
-.option button {
+.option button,
+.option select {
     width: 30vw;
     min-width: 200px;
     border:1px solid #CCCCCC;
     border-radius: 0;
-    padding: 6px;
+    padding: 6px 0;
+    text-indent: 10px;
+    -webkit-transition: box-shadow 0.3s ease;
+    -moz-transition:  box-shadow 0.3s ease;
+}
+.option select,
+.information select {
+    height: 28px;
+}
+.option p input {
+    width: 30px;
+    min-width: inherit;
+    margin: 0 10px;
+}
+.information input,
+.information button,
+.information select {
+    width: 70%;
+    border:1px solid #CCCCCC;
+    border-radius: 0;
+    padding: 6px 0;
+    text-indent: 10px;
     -webkit-transition: box-shadow 0.3s ease;
     -moz-transition:  box-shadow 0.3s ease;
 }
 .option button {
     box-sizing: content-box;
     background: #ffffff;
+    -webkit-transition: box-shadow 0.3s ease;
+    -moz-transition:  box-shadow 0.3s ease;
 }
 .option textarea {
     margin: 5px 0;
@@ -78,14 +138,23 @@ i {
     border-radius: 0;
     width: 60vw;
     height: 60px;
+    padding: 6px;
     resize: none;
+    -webkit-transition: box-shadow 0.3s ease;
+    -moz-transition:  box-shadow 0.3s ease;
 }
 .option span {
     padding: 0 10px;
     font-size: 12px;
     display: none;
 }
-.option input:focus {
+.option input:focus,
+.information input:focus,
+.option button:focus,
+.option select:focus,
+.information select:focus,
+.option textarea:focus,
+.information textarea:focus {
     outline: 0;
     border:#87C6F9 1px solid;
     box-shadow: 0 0 8px rgba(103, 166, 217, 1);
@@ -104,13 +173,26 @@ i {
 .submit {
     padding: 20px 0;
 }
-#submit {
+.submit label {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+#submit, #view {
     border: 0;
     padding: 10px 0;
     width: 100px;
     min-width: 100px;
     color: #ffffff;
     background: rgba(103, 166, 217, 1);
+}
+.information:last-child {
+    margin: 0;
+    padding: 0;
+    display: inherit;
+    justify-content: center;
+    width: 100%;
 }
 
 @media screen and (max-width: 640px) {
