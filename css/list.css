@@ -102,9 +102,14 @@ i {
     border:1px solid #CCCCCC;
     border-radius: 0;
     padding: 6px 0;
-    text-indent: 10px;
     -webkit-transition: box-shadow 0.3s ease;
     -moz-transition:  box-shadow 0.3s ease;
+}
+.option input,
+.option select,
+.information input,
+.information select {
+    text-indent: 10px;
 }
 .option select,
 .information select {
@@ -122,7 +127,6 @@ i {
     border:1px solid #CCCCCC;
     border-radius: 0;
     padding: 6px 0;
-    text-indent: 10px;
     -webkit-transition: box-shadow 0.3s ease;
     -moz-transition:  box-shadow 0.3s ease;
 }
