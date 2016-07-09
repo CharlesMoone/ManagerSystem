@@ -22,4 +22,8 @@ function pageLoad() {
     $("#addProcess").click(function (e) {
         window.location.hash = "{link:'./html/process/addProcess.html', asideNumber: 1, navNumber: 4}";
     });
+
+    $(".dusEdit").click(function (e) {
+        window.location.hash = "{link:'./html/process/editProcess.html', asideNumber: 0, navNumber: 4}";
+    });
 }

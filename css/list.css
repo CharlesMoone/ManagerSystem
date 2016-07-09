@@ -77,6 +77,13 @@ i {
     flex-flow: row;
     flex-wrap: wrap;
 }
+.area_show label,
+.area_show input {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
 
 .option label {
     width: 100px;
@@ -94,7 +101,7 @@ i {
     min-width: 200px;
     border:1px solid #CCCCCC;
     border-radius: 0;
-    padding: 6px 0;
+    padding: 6px;
     -webkit-transition: box-shadow 0.3s ease;
     -moz-transition:  box-shadow 0.3s ease;
 }
@@ -129,6 +136,7 @@ i {
     border-radius: 0;
     width: 60vw;
     height: 60px;
+    padding: 6px;
     resize: none;
     -webkit-transition: box-shadow 0.3s ease;
     -moz-transition:  box-shadow 0.3s ease;
@@ -162,6 +170,12 @@ i {
 }
 .submit {
     padding: 20px 0;
+}
+.submit label {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 #submit, #view {
     border: 0;

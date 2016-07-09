@@ -68,6 +68,16 @@ $(document).ready(function () {
                         link: './html/process/addProcess.html'
                     }
                 ]
+        },
+        trace: {
+            title: '溯源追踪',
+            content:
+                [
+                    {
+                        title: '溯源管理',
+                        link: './html/trace/trace.html'
+                    }
+                ]
         }
     };
 
