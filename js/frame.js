@@ -205,6 +205,7 @@ $(document).ready(function () {
         $.ajax({
             url: info.link,
             success: function (data) {
+                console.log(1);
                 $("#hash-page").html(data);
                 pageLoad();
             }
